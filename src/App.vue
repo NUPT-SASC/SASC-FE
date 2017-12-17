@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBar/>
+    <NavBar :is-home="isHome"/>
     <router-view/>
   </div>
 </template>
@@ -12,6 +12,11 @@ export default {
   name: 'app',
   components: {
     NavBar,
+  },
+  computed: {
+    isHome() {
+      return !this.$route.path.split('/')[1];
+    },
   },
 };
 </script>

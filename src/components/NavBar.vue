@@ -1,5 +1,5 @@
 <template>
-<header :class="[scrolled?'navbar-solid':'navbar']">
+<header :class="[(scrolled || !isHome)?'navbar-solid':'navbar']">
     <div class="container">
         <div class="home">
             <a href="//www.nuptsasc.com">
@@ -14,7 +14,7 @@
                 <el-menu-item index="/timeline">时间轴</el-menu-item>
                 <el-menu-item index="/files">资源共享</el-menu-item>
                 <el-menu-item index="/competition">比赛</el-menu-item>
-            </el-menu>        
+            </el-menu>
         </div>
     </div>
 </header>
@@ -23,6 +23,7 @@
 </template>
 <script>
   export default {
+    props: ['isHome'], // 如果是主页的navbar，则添加透明滚动渐变效果
     data() {
       return {
         scrolled: false, // 是否有滚动
@@ -63,8 +64,7 @@
         background-color: rgba(0, 0, 0, 0);
         &:hover{
             transition: all 0.3s ease 0s;
-            border-bottom: 2px solid #409EFF;
-            background-color: rgba(0, 0, 0, 0);
+            border-bottom: 2px solid #409EFF !important;
         }
 }
 }
