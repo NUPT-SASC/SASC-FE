@@ -1,5 +1,4 @@
 <template>
-  <div id="block" :height="clientHeight">
     <el-carousel :interval="3000" @change="changeHandle" class="sliders" :height="clientHeight" :autoplay="true">
       <el-carousel-item v-for="banner in banners" :key="banner.name" :style="banner.style">
          <div class="img-overlay"></div>
@@ -13,7 +12,6 @@
               </transition>
             </div>
     </el-carousel>
-  </div>
 </template>
 
 <script>
@@ -21,8 +19,8 @@
 export default {
   data() {
     return {
-      nowTitle: 'SASC',
-      show: false,
+      nowTitle: 'SASC', // 当前展示的内容
+      show: false, // 是否展示标题和内容
       clientHeight: `${document.documentElement.clientHeight}px`,
       banners: [
         {
@@ -51,7 +49,7 @@ export default {
     };
   },
   methods: {
-    // 切换图片后的回调
+    // 切换图片后，暂时隐藏标题和内容，一秒后再重新显示
     changeHandle(index) {
       this.show = false;
       const that = this;
@@ -86,13 +84,17 @@ export default {
         font-size: 120px;
         font-weight: 800;
         margin: 0px;
+        text-align: center;
       }
       h2{
         font-size: 60px;
         font-weight: 600;
-        margin: 0px;
+        margin: 0px;        
+        text-align: center;
+
       }
     }
+
   .el-carousel__item {
     /* Center and scale the image nicely */
     /* 优雅的图片居中自适应方案 */
