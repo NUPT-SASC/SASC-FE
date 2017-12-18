@@ -49,7 +49,7 @@
 
 
 <style lang="less" scoped>
-
+@import url('../styles/colors.less');
 .el-menu{
     background-color:rgba(0, 0, 0, 0);
     color:white;
@@ -58,13 +58,21 @@
     .el-menu-item{
         height: 50px;
         line-height: 50px;
-        transition: all 0.2s ease 0s;
+        transition: all 0.4s ease 0s;
         font-size: 14px;
+        font-weight: 700;
         color:white;
         background-color: rgba(0, 0, 0, 0);
+        &.is-active{
+            font-size: 16px;
+            color: @green;
+            border-bottom: 2px solid @green !important;
+        }
         &:hover{
-            transition: all 0.3s ease 0s;
-            border-bottom: 2px solid #409EFF !important;
+            font-size: 16px;
+            color: @green;
+            transition: all 0.4s ease 0s;
+            border-bottom: 2px solid @green !important;
         }
 }
 }
@@ -75,15 +83,17 @@
     transition: all 0.3s ease 0s;
 }
 .navbar-solid {
+    box-shadow: 0 10px 100px 0 rgba(0,0,0,1);
     padding-top:5px;
-    
     background-color: #000 !important;
-    transition: all 0.2s ease 0s;
-     
+    transition: all 0.3s ease 0s;
+    .el-menu-item:hover, .is-active{
+        transition: all 0.4s ease 0s;
+        box-shadow: 0 10px 100px 0px rgba(0,0,0,1);
+    }
 }
 
 header{
-    padding-top: 5px;
     height: 50px;
     width: 100%;
     position: fixed;

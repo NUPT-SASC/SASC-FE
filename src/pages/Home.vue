@@ -1,14 +1,15 @@
 <template>
 <div>
   <Slider/>
-  <div style="height:600px"></div>
+  <T/>
 </div>
 </template>
 <script>
 import Slider from '@/components/Slider';
+import T from '@/components/T';
 
 export default {
-  components: { Slider },
+  components: { Slider, T },
 };
 </script>
 

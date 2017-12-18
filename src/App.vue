@@ -23,10 +23,15 @@ export default {
 
 <style lang="less">
 @import url('./styles/common.less');
+@import url('./styles/colors.less');
+ body{
+   background-color: @background-gray;
+ }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: @background-gray;
   color: #2c3e50;
   /* margin-top: 60px; */
 }
