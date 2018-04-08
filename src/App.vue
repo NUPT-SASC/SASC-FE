@@ -2,16 +2,18 @@
   <div id="app">
     <NavBar :is-home="isHome"/>
     <router-view/>
+    <Bottom/>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar';
+import Bottom from '@/components/Bottom';
 
 export default {
   name: 'app',
   components: {
-    NavBar,
+    NavBar, Bottom,
   },
   computed: {
     isHome() {

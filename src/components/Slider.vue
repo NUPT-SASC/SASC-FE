@@ -73,6 +73,7 @@ export default {
 <style lang="less" scoped>
 
 .sliders{
+  overflow: hidden;
   .content{
       z-index:5;
       color: white;

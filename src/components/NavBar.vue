@@ -1,12 +1,12 @@
 <template>
-<header :class="[(scrolled || !isHome)?'navbar-solid':'navbar']">
+<header :class="['navbar',(scrolled || !isHome)?'navbar-solid':'navbar-transparent']">
     <div class="container">
         <div class="home">
-            <a href="//www.nuptsasc.com">
+            <a href="/">
                 <img src="../assets/logo.png" alt="Logo" style="height: 40px">
             </a>
         </div>
-        <div class="menus">
+        <div class="menus hidden-xs-only">
             <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"  :router="true">
                 <el-menu-item index="/">关于科协</el-menu-item>
                 <el-menu-item index="/galley">科协图库</el-menu-item>
@@ -14,8 +14,26 @@
                 <el-menu-item index="/timeline">时间轴</el-menu-item>
                 <el-menu-item index="/files">资源共享</el-menu-item>
                 <el-menu-item index="/competition">比赛</el-menu-item>
+                <el-menu-item index="/login">登录</el-menu-item>
             </el-menu>
         </div>
+  
+            <el-dropdown trigger="click"  @command="handleCommand">
+        <span class="el-dropdown-link hidden-sm-and-up">
+            <i class="el-icon-menu"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="/">关于科协</el-dropdown-item>
+            <el-dropdown-item command="/galley">科协图库</el-dropdown-item>
+            <el-dropdown-item command="/news">通知新闻</el-dropdown-item>
+            <el-dropdown-item command="/timeline">时间轴</el-dropdown-item>
+            <el-dropdown-item command="/file">资源共享</el-dropdown-item>
+            <el-dropdown-item command="/competition">比赛</el-dropdown-item>
+            <el-dropdown-item command="/login">登录</el-dropdown-item>
+        </el-dropdown-menu>
+        </el-dropdown>
+
+        
     </div>
 </header>
 
@@ -38,6 +56,9 @@
       handleScroll() {
         this.scrolled = window.scrollY > 0; // 滚动事件的回调
       },
+      handleCommand(command) { // 小屏状态时的下来菜单点击回调
+        this.$router.push(command);
+      },
     },
     mounted() {
       window.addEventListener('scroll', this.handleScroll); // 监听滚动事件
@@ -49,8 +70,22 @@
 
 
 <style lang="less" scoped>
+@import 'element-ui/lib/theme-chalk/display.css';
 @import url('../styles/colors.less');
-.el-menu{
+
+// 菜单栏
+.navbar{
+    .el-dropdown{
+        float: right;
+        color: white;
+        font-size: 24px;
+        font-weight: 700;
+        padding-top: 10px;
+        user-select: none;
+        cursor:pointer;
+    }
+
+    .el-menu{
     background-color:rgba(0, 0, 0, 0);
     color:white;
     bottom: 0;
@@ -65,33 +100,39 @@
         background-color: rgba(0, 0, 0, 0);
         &.is-active{
             font-size: 16px;
-            color: @green;
-            border-bottom: 2px solid @green !important;
+            color: @blue;
+            border-bottom: 2px solid @blue !important;
         }
         &:hover{
             font-size: 16px;
-            color: @green;
+            color: @blue;
+            background: rgba(0, 0, 0, 0);
             transition: all 0.4s ease 0s;
-            border-bottom: 2px solid @green !important;
+            border-bottom: 2px solid @blue !important;
         }
-}
+    }
 }
 
+}
 
-.navbar{
+// 透明状态的菜单栏
+.navbar-transparent{
     padding-top: 30px;
     transition: all 0.3s ease 0s;
 }
+
+// 非透明状态的菜单栏
 .navbar-solid {
-    box-shadow: 0 10px 100px 0 rgba(0,0,0,1);
+    box-shadow: 0 0 100px 10px rgba(0,0,0,1);
     padding-top:5px;
     background-color: #000 !important;
     transition: all 0.3s ease 0s;
-    .el-menu-item:hover, .is-active{
-        transition: all 0.4s ease 0s;
-        box-shadow: 0 10px 100px 0px rgba(0,0,0,1);
-    }
+    // .el-menu-item:hover, .is-active{
+    //     transition: all 0.4s ease 0s;
+    //     box-shadow: 0 0 100px 10px rgba(0,0,0,1);
+    // }
 }
+
 
 header{
     height: 50px;
