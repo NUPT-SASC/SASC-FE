@@ -123,7 +123,7 @@
 
 // 非透明状态的菜单栏
 .navbar-solid {
-    box-shadow: 0 0 100px 10px rgba(0,0,0,1);
+    // box-shadow: 0 0 100px 10px rgba(0,0,0,1);
     padding-top:5px;
     background-color: #000 !important;
     transition: all 0.3s ease 0s;

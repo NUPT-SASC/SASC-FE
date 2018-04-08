@@ -11,10 +11,8 @@
             <el-col :md="12" id="content">
                 <p>© 2017 SASC</p>
                 <p>南京邮电大学理学院科协 v2.0</p>
-                 <p class="site-info">技术支持：<a href="https://github.com/nupt-sasc" title="南邮理学院科协计算机部" target="_blank">SASC计算机部</a>
-                    &amp; <a href="https://github.com/gaoliang" title="但丁的蛋壳" target="_blank">但丁的蛋壳</a></p>
-                  <p>审阅：盈袖</p>
-                <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>        
+                 <p class="site-info">技术支持：<a href="https://github.com/nupt-sasc" style="font-weight: bold" title="南邮理学院科协计算机部" target="_blank">SASC计算机部</a></p>
+                <p>Hosted by <a style="font-weight: bold">Github Pages</a></p>        
             </el-col>
             </el-row>
         </div>
@@ -51,8 +49,8 @@ export default {};
     }
     img {
       filter: invert(1);
-      height: 120px;
-      width: 120px;
+      height: 100px;
+      width: 100px;
     }
   }
   #content {
