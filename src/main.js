@@ -15,11 +15,12 @@ import {
   Col,
   Card,
 } from 'element-ui';
-import axios from 'axios';
 import Viewer from 'v-viewer';
 import VueAMap from 'vue-amap';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App';
+import axios from './http';
+
 import router from './router';
 
 

@@ -10,12 +10,12 @@
 <script>
 import Slider from '@/components/Slider';
 import About from '@/components/About';
-import T from '@/components/T';
+// import T from '@/components/T';
 import Contact from '@/components/Contact';
 import Department from '@/components/Department';
 
 export default {
-  components: { Slider, T, Contact, Department, About },
+  components: { Slider, Contact, Department, About },
 };
 </script>
 

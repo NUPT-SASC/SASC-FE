@@ -9,9 +9,9 @@
         <h2>我们一般做什么？</h2>
         <p>这里是我们科协最新的动态资讯和活动公告.</p>
         
-            <!-- <li v-for="news in all_news">
+            <li v-for="news in all_news">
             <a :href="news.url" >{{news.title}}</a>
-            </li> -->
+            </li>
     </el-col>
 </el-row>
 </div>
@@ -22,27 +22,13 @@ export default {
   data() {
     return {
       all_news: [
-        {
-          title: '出大事了1',
-          url: 'http://www.bing.com',
-        },
-        {
-          title: '出大事了2',
-          url: 'http://www.bing.com',
-        },
-        {
-          title: '出大事了3',
-          url: 'http://www.bing.com',
-        },
-        {
-          title: '出大事了4',
-          url: 'http://www.bing.com',
-        },
       ],
     };
   },
   mounted() {
-      // init all_news here
+    this.axios.get('api/news/').then((response) => {
+      this.all_news = response.data;
+    });
   },
 };
 </script>
